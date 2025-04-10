@@ -1,0 +1,76 @@
+/*  */
+
+.navigationMenu_8_12 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  opacity: 1;
+}
+/* Children Css */
+
+.navigationViewport_10_13 {
+  position: relative;
+  flex: 1 0 0;
+  border: 1px solid #000;
+  background: #fff;
+  opacity: 1;
+
+  transform-origin: top center;
+  width: 100%;
+  overflow: hidden;
+  height: var(--radix-navigation-menu-viewport-height);
+  transition:
+    width,
+    height,
+    300ms ease;
+
+  &[data-state="open"] {
+    animation: scaleIn 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: scaleOut 200ms ease;
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: var(--radix-navigation-menu-viewport-width);
+  }
+
+  @at-root {
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: rotateX(-30deg) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+      }
+    }
+
+    @keyframes scaleOut {
+      from {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: rotateX(-10deg) scale(0.95);
+      }
+    }
+  }
+}
+
+.navigationViewportPosition_8_11 {
+  position: absolute;
+  display: flex;
+  padding-top: 5px;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 1;
+
+  top: 100%;
+  perspective: 2000px;
+}
